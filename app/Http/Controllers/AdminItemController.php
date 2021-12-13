@@ -20,7 +20,7 @@ class AdminItemController extends Controller
     
     public function createMenu()
     {
-        return view ('admin.Item_create');
+        return view ('admin.item_create');
     }
 
     public function updateMenu($id)

@@ -12,6 +12,8 @@ class LoginController extends Controller
 {
     public function showLogin()
     {
+        DB::connection()->getPdo();
+
         return view('admin.login');
     }
 
@@ -63,6 +65,7 @@ class LoginController extends Controller
             $password_check = Hash::check($password, $username_check['password']);
 
             if($password_check){
+                $request->session()->put('username','Diki Alfarabi Hadi');
                 return redirect()->route('admin_home');
             }
             else{
@@ -72,5 +75,11 @@ class LoginController extends Controller
         else{
             return redirect()->back()->withErrors(['Account login Failed!']);
         } 
+    }
+    
+    public function logout(Request $request)
+    {
+        $request->session()->forget('username');
+        return redirect()->route('login_show');
     }
 }

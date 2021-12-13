@@ -7,7 +7,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,9 +20,80 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+            } table, td, tr, th{
+                border: 1px solid black;
+            }table.center {
+                margin-left: auto;
+                margin-right: auto;
             }
-            .icon-custom{
-                color: #FF9D43;
+            .hovertable tr:hover{
+                background: #e6e6ff;
+            }
+        
+        </style>
+        <style>
+        .button {
+            background-color: #FF9D43;
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            }
+        
+        </style>
+        <style>
+            body {margin:0;}
+
+            .navbar {
+            overflow: hidden;
+            background-color: #4169E1;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            }
+
+            .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: right;
+            padding: 10px 10px;
+            text-decoration: none;
+            font-size: 20px;
+            }
+
+            .navbar a:hover {
+            background: #FF9D43;
+            color: #ddd;
+            }
+
+            .btn-custom-color{
+                background-color:#FF9D43;
+                color: #ddd;
+            }
+            
+            .form-custom{
+                border: 2px:white;
+                border-radius: 5px;
+                background-color:#FF9D43;
+                color: #ddd;
+            }
+
+            .main {
+            padding: 5px;
+            margin-top: 30px;
+            height: 1500px; /* Used in this example to enable scrolling */
+            }
+
+            .logo-link{
+                position: absolute;
             }
             .logo-img{
                 border-radius: 20px;
@@ -30,47 +101,64 @@
                 width: 90px;
                 height: 90px;
             }
-            .div-custom{
-                width: 300px;
-                padding: 25px;
-                box-sizing: border-box;
-                background-color: #6495ED; 
+            .li {
+            display:inline-block;
+            float: left;
+            border-right: 1px solid #bbb;
             }
-        </style>
+            .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            }
+            .li:last-child {
+            border-right: none;
+            }
+            </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <a id="top"></a>
+        <div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             
-            
-        <form action="{{route('login_admin')}}" method="POST" class="px-4 py-3">
-                
-            @if($errors->count() > 0)
-            <div class="alert alert-danger">
-                <ul>
-                @foreach($errors->all() as $message)
-                    <li> {{$message}} <br> </li>
-                @endforeach
-                </ul>
-            </div> 
-            @endif
-            
-            
-            @csrf
-            <div class="form-group div-custom ">
-                <div class="w-100 text-center">
-                    <img src="/image/LOGO (2).png" class="logo-img " alt="Cashieristic Logo" >           
-                </div>
-
-                <label for="exampleInputEmail1">Username</label>
-                <input type="name" name="username" class="form-control" placeholder="Enter username">
-            
-                <label for="exampleInputPassword1"style="margin-top:10px;">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password">
-           
-                <button type="submit" class="btn btn-primary" style ="margin-top:30px;">Submit</button>
+            <div class="navbar navbar-expand-lg">
+                <h4 style="color:#ffcc80;text-align:center;text-indent: 120px;"><i>Your local comfort</i> </h4>
+                <a href="/admin/home" class="logo-link"> 
+                    <img src="/image/logo1.png" class="logo-img pull-left" alt="Cashieristic Logo" >
+                </a>
+                <div class="collapse navbar-collapse ml-2" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a href="/admin/home" class="btn btn-link nav-link"> Sales <i class="fas fa-chart-bar"></i> </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/admin/dataMenu" class="btn btn-link nav-link " style="padding 100px 0px"> Menu  <i class="fas fa-clipboard"></i> </a>
+                      </li> 
+                    </ul>
+                </div> 
+                <a href="/admin/logout" style = align="right"> Logout <i class="fas fa-sign-out-alt"></i>
+                </i></a>
             </div>
 
-        </form>
-        </div>
-    </body>
-</html>
+            <div style="margin-top:70px; padding:0px 50px">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                    {{ session('success') }}
+                    </div>
+                @endif
+            
+                @if($errors->count() > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach($errors->all() as $message)
+                        <li> {{$message}} <br> </li>
+                    @endforeach
+                    </ul>
+                </div> 
+                @endif
+
+                @yield('content')
+            </div>
+
+        </body>
+        </html>

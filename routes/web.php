@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,17 @@ Route::get('/', function () {
 });
 
 
-Route::get('admin/login', "LoginController@showLogin");
+Route::get('admin/login', "LoginController@showLogin")->name('login_show');
 Route::post('admin/login', "LoginController@login")->name('login_admin');
-Route::get("admin/home", "AdminHomeController@index")->name("admin_home");
+Route::get('admin/logout', "LoginController@logout")->name("logout_show");
+
+Route::group(['middleware' => 'CekAdmin'], function () 
+{   Route::get("admin/home", "AdminHomeController@index")->name("admin_home");
+    Route::get("admin/itemCreate", "AdminItemController@createMenu")->name("admin_item_create_show");
+    Route::post("admin/itemCreate", "AdminItemController@submit")->name("admin_item_create_post");
+    Route::get('admin/dataMenu', "AdminItemController@index")->name("admin_data_menu");
+    Route::get('admin/itemRestore/{id}', "AdminitemController@restoreMenu")->name("admin_data_menu_restore");
+    Route::get("admin/itemUpdate/{id}", "AdminItemController@updateMenu")->name("admin_item_update_show");
+    Route::post("admin/itemUpdate/{id}", "AdminItemController@update")->name("admin_item_update_post");
+    Route::get("admin/itemDelete/{id}", "AdminItemController@deleteMenu")->name("admin_item_delete_show");
+});

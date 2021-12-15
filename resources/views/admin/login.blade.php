@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Cashieristic</title>
         <link rel="icon" href="/image/LOGO (2).png" type="image/png" sizes="25x25">
 
 

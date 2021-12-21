@@ -14,8 +14,10 @@ class AdminItemController extends Controller
     public function index()
     {
         $items = item::withTrashed()->paginate(10);  
+        
+        $sequence = $items->firstItem();
 
-        return view('admin.data_menu', ['items' => $items]);
+        return view('admin.data_menu', ['items' => $items],['sequence' => $sequence]);
     }
     
     public function createMenu()

@@ -31,7 +31,7 @@
         @foreach($items as $p)
         <tr>
             
-            <td style="vertical-align:center">{{ $p->id }}</td>
+            <td style="vertical-align:center">{{ $sequence++ }}</td>
             <td style="vertical-align:center">{{ $p->name }}</td>
             <td>{{ $p->category }}</td>
             <td>{{ $p->price }}</td>

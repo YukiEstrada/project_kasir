@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +32,12 @@ Route::group(['middleware' => 'CekAdmin'], function ()
     Route::post("admin/itemUpdate/{id}", "AdminItemController@update")->name("admin_item_update_post");
     Route::get("admin/itemDelete/{id}", "AdminItemController@deleteMenu")->name("admin_item_delete_show");
 });
+
+Route::get('user/category', "CustomerItemController@index")->name("user_category");
+// Route::get('user/itemCategory/{category_slug}', "ItemComponent@render")->name("item_category");
+
+// Route Add Items to Cart
+Route::post('user/addToCart/{id}', "CustomerItemController@getAddToCart")->name("item_addToCart");
+Route::get('user/cart', "CustomerItemController@showCart")->name("item_Cart");
+Route::get('user/invoice', "CustomerItemController@invoice")->name("item_invoice");
+Route::get('user/printInvoice', "CustomerItemController@printInvoice")->name("item_printInvoice");

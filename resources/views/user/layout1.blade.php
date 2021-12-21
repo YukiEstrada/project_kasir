@@ -12,6 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
         <!-- Styles -->
         <link href="/css/dashboardstyle.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/invoice.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d0eb1a3c02.js" crossorigin="anonymous"></script>
         
@@ -129,16 +130,7 @@
                 <a href="/admin/home" class="logo-link"> 
                     <img src="/image/logo1.png" class="logo-img pull-left" alt="Cashieristic Logo" >
                 </a>
-                <div class="collapse navbar-collapse ml-2" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item active">
-                        <a href="/admin/home" class="btn btn-link nav-link"> Sales <i class="fas fa-chart-bar"></i> </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="/admin/dataMenu" class="btn btn-link nav-link " style="padding 100px 0px"> Menu  <i class="fas fa-clipboard"></i> </a>
-                      </li> 
-                    </ul>
-                </div>
+                <div class="collapse navbar-collapse ml-2" id="navbarNav"></div>
                 <a href="{{ route('item_Cart') }}" style = align="right"> Shopping Cart <i class="fas fa-shopping-cart"></i>
                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQuantity : '' }}</span>
                 </i></a>

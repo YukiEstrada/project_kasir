@@ -13,6 +13,14 @@
 </div>
 <div class="row">
     <div class="col-12">
+
+      <p>Search Menu</p>
+      <form action="" method="GET">
+        <input type="text" name="search" placeholder="Enter Menu Name" value="{{ old('search') }}">
+        <input type="submit" value="SEARCH">
+      </form>
+        
+      <br/>
       <table class="table table-image table table-bordered hovertable">
         <thead class="thead-dark">
           <tr>

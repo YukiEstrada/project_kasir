@@ -11,17 +11,35 @@ use Illuminate\Support\Facades\Validator;
 class CustomerItemController extends Controller
 {
     public function showMenu(Request $request)
-    {
+    { 
+        $items = new Item;
+
         $category = $request->category;
         if($category != null){
-            $items = Item::where('category', $category)->get();
+            $items = $items->where('category', $category);
         }
-        else{
-            $items = Item::get();
+
+        if($request->search != null){  
+            $search = $request->search;
+            $items = $items->where('name','like',"%".$search."%");
         }
+        
+        $items = $items->get(); 
+        
         $has_item = Cart::count();
         return view('user.category', compact('items'));
     }
+    
+    public function search(Request $request)
+	{
+		$search = $request->search;
+ 
+		$items = Item::get('name')
+        ->where('name','like',"%".$search."%");
+	
+		return view('user.category',['item' => $items]);
+ 
+	}
 
     public function checkout(Request $request)
     {

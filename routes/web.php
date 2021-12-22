@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('user_menu');
 });
 
 
@@ -33,3 +33,9 @@ Route::group(['middleware' => 'CekAdmin'], function ()
     Route::post("admin/itemUpdate/{id}", "AdminItemController@update")->name("admin_item_update_post");
     Route::get("admin/itemDelete/{id}", "AdminItemController@deleteMenu")->name("admin_item_delete_show");
 });
+
+Route::get('user/menu', 'CustomerItemController@showMenu')->name('user_menu');
+Route::get('user/cart', 'CustomerItemController@showCart')->name('item_Cart');
+Route::post('user/cart/add-item', 'CustomerItemController@addItemToCart')->name('item_addToCart');
+Route::post('user/cart/checkout', 'CustomerItemController@checkout')->name('cart_checkout');
+Route::get('user/invoice', 'CustomerItemController@showInvoice')->name('item_invoice');

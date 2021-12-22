@@ -91,6 +91,8 @@
             background-color:#FF9D43;
             color: #ddd;
         }
+
+        
         
         .main {
             padding: 5px;
@@ -130,14 +132,13 @@
             
             <div class="navbar navbar-expand-lg">
                 <h4 style="color:#ffcc80;text-align:center;text-indent: 120px;"><i>Your local comfort</i> </h4>
-                <a href="/admin/home" class="logo-link"> 
+                <a href="/user/menu" class="logo-link"> 
                     <img src="/image/logo1.png" class="logo-img pull-left" alt="Cashieristic Logo" >
                 </a>
                 <div class="collapse navbar-collapse ml-2" id="navbarNav"></div>
                 <a href="{{ route('item_Cart') }}" style = align="right"> Shopping Cart <i class="fas fa-shopping-cart"></i>
                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQuantity : '' }}</span>
                 </i></a>
-                <a href="/admin/logout" style = align="right"> Logout <i class="fas fa-sign-out-alt"></i>
                 </i></a>
             </div>
 

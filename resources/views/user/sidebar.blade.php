@@ -1,7 +1,7 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
         <form method="GET" action="" id="category-filter" class="form-inline">
-            <label class="form-label"> Category </label>
+            <label class="form-label label-custom" style = "margin-bottom: 10px; font-size: 40px;"> Category </label>
             <select name="category" class="form-control" onchange="this.form.submit()">
                 <option value=""> </option> 
                 @php 

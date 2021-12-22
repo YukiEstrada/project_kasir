@@ -28,11 +28,21 @@ class CustomerItemController extends Controller
         $data = $request->all();
 
         $validation = Validator::make($data, [
+            'cart_id' => 'required|array',
+            'quantity' => 'required|array',
             'paid_price' => 'required|numeric|min:1', 
         ]);
  
         if($validation->fails()){
             return redirect()->back()->withErrors($validation->errors()->first());
+        }
+
+        $submitted_cart_id = $request->cart_id;
+        $submitted_quantity = $request->quantity;
+        foreach($submitted_cart_id as $index => $cart_id){
+            $cart = Cart::find($cart_id);
+            $cart->quantity = $submitted_quantity[$index];
+            $cart->save();
         }
 
         $carts = Cart::get();
@@ -96,6 +106,15 @@ class CustomerItemController extends Controller
         }
  
         return view('user.cart', compact('carts', 'total_price'));
+    }
+
+    public function deleteMenuCart(Request $request, $id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+        
+        return redirect()->back()->with('success', 'Item has been deleted from cart');        
+       
     }
 
     public function addItemToCart(Request $request)

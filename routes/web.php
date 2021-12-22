@@ -37,5 +37,6 @@ Route::group(['middleware' => 'CekAdmin'], function ()
 Route::get('user/menu', 'CustomerItemController@showMenu')->name('user_menu');
 Route::get('user/cart', 'CustomerItemController@showCart')->name('item_Cart');
 Route::post('user/cart/add-item', 'CustomerItemController@addItemToCart')->name('item_addToCart');
+Route::get("admin/cart/delete/{id}", "CustomerItemController@deleteMenuCart")->name("user_item_delete_show");
 Route::post('user/cart/checkout', 'CustomerItemController@checkout')->name('cart_checkout');
 Route::get('user/invoice', 'CustomerItemController@showInvoice')->name('item_invoice');

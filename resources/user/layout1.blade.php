@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cashieristic</title>
-        <link rel="icon" href="/image/LOGO (2).png" type="image/png" sizes="25x25">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <title>Cashieristic</title>
+    <link rel="icon" href="/image/Logo_Kopitiam.jpg" type="image/png" sizes="25x25">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
         <!-- Styles -->
         <link href="/css/dashboardstyle.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/invoice.css">
@@ -145,28 +147,29 @@
                     </div>
                 @endif
             
-                @if($errors->count() > 0)
+                @if ($errors->count() > 0)
                 <div class="alert alert-danger">
                     <ul>
-                    @foreach($errors->all() as $message)
-                        <li> {{$message}} <br> </li>
-                    @endforeach
+                    @foreach ($errors->all() as $message)
+                        <li> {{ $message }} <br> </li> @endforeach
                     </ul>
                 </div> 
                 @endif
 
-                <div class="container-fluid w3-sidebar w3-bar-block" id="sidebar-wrapper">
-                    @yield('content')
-                </div>
+                <div class="container-fluid
+        w3-sidebar w3-bar-block" id="sidebar-wrapper">
+    @yield('content')
+    </div>
 
-                <div class="container" style="margin-left:25%">
-                    <div class="row">
-                        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page-content-wrapper">
-                        @yield('content1')
-                        </main>
-                    </div>
-                </div>
-            </div>
+    <div class="container" style="margin-left:25%">
+        <div class="row">
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page-content-wrapper">
+                @yield('content1')
+            </main>
         </div>
+    </div>
+    </div>
+    </div>
     </body>
- </html>
+
+</html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Cashieristic</title>
-    <link rel="icon" href="/image/Logo_Kopitiam.png" type="image/png" sizes="25x25">
+    <link rel="icon" href="/image/Logo_Kopitiam.jpg" type="image/png" sizes="25x25">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -135,7 +135,7 @@
             <div class="navbar navbar-expand-lg">
                 <h4 style="color:#ffcc80;text-align:center;text-indent: 120px;"><i>Your local comfort</i> </h4>
                 <a href="/user/menu" class="logo-link"> 
-                    <img src="/image/Logo_Kopitiam.png" class="logo-img pull-left" alt="Cashieristic Logo" >
+                    <img src="/image/Logo_Kopitiam.jpg" class="logo-img pull-left" alt="Cashieristic Logo" >
                 </a>
                 <div class="collapse navbar-collapse ml-2" id="navbarNav"></div>
                 <a href="{{ route('item_Cart') }}" style = align="right"> Shopping Cart <i class="fas fa-shopping-cart"></i>

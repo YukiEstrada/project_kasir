@@ -11,11 +11,20 @@ use Psy\Command\EditCommand;
 
 class AdminItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = item::withTrashed()->paginate(10);  
+        $items = new Item;
+
+        
+        if($request->search != null){  
+            $search = $request->search;
+            $items = $items->where('name','like',"%".$search."%");
+        }
+
+        $items = $items->withTrashed()->paginate(10);  
         
         $sequence = $items->firstItem();
+
 
         return view('admin.data_menu', ['items' => $items],['sequence' => $sequence]);
     }
@@ -87,6 +96,8 @@ class AdminItemController extends Controller
         ->with('success','Product updated successfully');
 
     }
+
+    
 
    public function submit(Request $request)
    {

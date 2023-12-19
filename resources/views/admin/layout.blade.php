@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cashieristic</title>
-        <link rel="icon" href="/image/LOGO (2).png" type="image/png" sizes="25x25">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-       <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <title>Cashieristic</title>
+    <link rel="icon" href="/image/Logo_Kopitiam.png" type="image/png" sizes="25x25">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d0eb1a3c02.js" crossorigin="anonymous"></script>
@@ -148,18 +149,18 @@
                     </div>
                 @endif
             
-                @if($errors->count() > 0)
+                @if ($errors->count() > 0)
                 <div class="alert alert-danger">
                     <ul>
-                    @foreach($errors->all() as $message)
-                        <li> {{$message}} <br> </li>
-                    @endforeach
+                    @foreach ($errors->all() as $message)
+                        <li> {{ $message }} <br> </li> @endforeach
                     </ul>
-                </div> 
-                @endif
+                </div>
+                 @endif
 
-                @yield('content')
-            </div>
+    @yield('content')
+    </div>
 
-        </body>
-        </html>
+    </body>
+
+</html>

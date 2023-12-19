@@ -35,7 +35,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="3"> TOTAL </td>
-                        <td class="total-col"> {{$total_price}}</td>
+                        <td class="total-col"></td>
                     </tr>
                 </tfoot>
             </table>

@@ -106,12 +106,20 @@ class CustomerItemController extends Controller
 
         $delete = Cart::truncate();
 
-        return redirect()->route('user_menu')->with('success', 'Order has been successfully created!');
+        return redirect()->route('item_invoice')->with('success', 'Order has been successfully created!');
     }
 
     public function showInvoice(Request $request)
     {
-        $invoice = Order::get();
+        $inv = Order::latest()->first();
+
+        $total_price = 0;
+        foreach($inv->items as $purchased_item) {
+            $total_price += $purchased_item->pivot->price * $purchased_item->pivot->quantity;
+        }
+
+        // return $inv->items;
+        return view('user.invoice',['inv' => $inv]);
     }
 
     public function showCart(Request $request)

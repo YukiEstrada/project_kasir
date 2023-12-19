@@ -41,7 +41,7 @@
                     <form method= "POST" action="{{ route('item_addToCart', ['id'=>$p->id])  }}">
                       @csrf
                         <button type="submit" name="item_id">
-                            <img src="{{ url($p->image_path) }}" alt="Image">
+                            <img src="{{ url($p->image_path) }}" alt="Image"  width="100px">
                         </button>
                     </form>
                     <td>{{ $p->name }}</td>

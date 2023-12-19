@@ -126,7 +126,7 @@
             <div class="navbar navbar-expand-lg">
                 <h4 style="color:#ffcc80;text-align:center;text-indent: 120px;"><i>Your local comfort</i> </h4>
                 <a href="/admin/home" class="logo-link"> 
-                    <img src="/image/logo1.png" class="logo-img pull-left" alt="Cashieristic Logo" >
+                    <img src="/image/Logo_Kopitiam.png" class="logo-img pull-left" alt="Cashieristic Logo" >
                 </a>
                 <div class="collapse navbar-collapse ml-2" id="navbarNav">
                     <ul class="navbar-nav">
@@ -156,7 +156,7 @@
                         <li> {{ $message }} <br> </li> @endforeach
                     </ul>
                 </div>
-                 @endif
+                  @endif
 
     @yield('content')
     </div>

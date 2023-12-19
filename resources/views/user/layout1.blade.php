@@ -135,7 +135,7 @@
             <div class="navbar navbar-expand-lg">
                 <h4 style="color:#ffcc80;text-align:center;text-indent: 120px;"><i>Your local comfort</i> </h4>
                 <a href="/user/menu" class="logo-link"> 
-                    <img src="/image/logo1.png" class="logo-img pull-left" alt="Cashieristic Logo" >
+                    <img src="/image/Logo_Kopitiam.png" class="logo-img pull-left" alt="Cashieristic Logo" >
                 </a>
                 <div class="collapse navbar-collapse ml-2" id="navbarNav"></div>
                 <a href="{{ route('item_Cart') }}" style = align="right"> Shopping Cart <i class="fas fa-shopping-cart"></i>
